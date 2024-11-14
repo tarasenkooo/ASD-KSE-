@@ -1,0 +1,22 @@
+def average_portfolio(shares):
+    total = 0
+    count = 0
+
+    for share in shares:
+        price = share["price"]
+        if price is not None:
+            total += price
+            count += 1
+    if count > 0:
+        average = total / count
+    else:
+        return False
+    return average
+
+shares = [
+    {"name": "AAPL", "price": 150},
+    {"name": "GOOGL", "price": 2800},
+    {"name": "TSLA", "price": 700},
+    {"name": "AMZN", "price": None},
+]
+print(average_portfolio(shares))

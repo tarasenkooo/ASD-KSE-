@@ -1,0 +1,38 @@
+import random
+import time
+
+def generate_sorted_array(size, lower_bound=1, upper_bound=10000):
+    array = [random.randint(lower_bound, upper_bound) for _ in range(size)]
+    return sorted(array)
+
+
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+
+    return -1
+
+
+def binary_search(value, numbers):
+    low = 0
+    high = len(numbers) - 1
+
+    while low <= high:
+        middle = low + (high - low) // 2
+        if numbers[middle] == value:
+            return "Yes"
+        elif numbers[middle] < value:
+            low = middle + 1
+        else:
+            high = middle - 1
+
+    return "No"
+
+array = generate_sorted_array(100)
+
+print("Generated sorted array:", array)
+
+print(linear_search(array, 60))
+
+print(binary_search(array, 60))
